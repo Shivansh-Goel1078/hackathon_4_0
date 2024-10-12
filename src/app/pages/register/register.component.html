@@ -21,60 +21,44 @@
     <title>Login or Register - Book My Ambulance (BMA)</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 flex justify-center items-center h-screen">
+<body class="bg-gray-100 ">
+    <header></header>
 
     <!-- Container for Login/Register Form -->
-    <div class="bg-white shadow-lg rounded-lg w-full max-w-md p-8">
+    <section class="flex justify-center items-center h-screen">
+        <div class="bg-white shadow-lg rounded-lg w-full max-w-md p-8">
         
 
-        <!-- Register Form (Initially Hidden) -->
-        <div id="register-form">
-            <h2 class="text-2xl font-bold mb-6 text-center">Create a new account</h2>
-            <form>
-                <div class="mb-4">
-                    <label for="register-name" class="block mb-2 text-sm text-gray-600">Full Name</label>
-                    <input type="text" id="register-name" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your full name">
-                </div>
-                <div class="mb-4">
-                    <label for="register-email" class="block mb-2 text-sm text-gray-600">Email</label>
-                    <input type="email" id="register-email" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your email">
-                </div>
-                <div class="mb-4">
-                    <label for="register-password" class="block mb-2 text-sm text-gray-600">Password</label>
-                    <input type="password" id="register-password" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Create a password">
-                </div>
-                <button type="submit" class="w-full bg-green-500 text-white p-3 rounded-lg hover:bg-green-600">
-                    Register
-                </button>
-            </form>
-            <p class="text-center text-sm text-gray-500 mt-6">Already have an account? <button id="switch-to-login" class="text-blue-500 hover:underline">Login here</button></p>
+            <!-- Register Form (Initially Hidden) -->
+            <div id="register-form">
+                <h2 class="text-2xl font-bold mb-6 text-center">Create a new account</h2>
+                <form>
+                    <div class="mb-4">
+                        <label for="register-name" class="block mb-2 text-sm text-gray-600">Full Name</label>
+                        <input type="text" id="register-name" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your full name">
+                    </div>
+                    <div class="mb-4">
+                        <label for="register-email" class="block mb-2 text-sm text-gray-600">Email</label>
+                        <input type="email" id="register-email" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your email">
+                    </div>
+                    <div class="mb-4">
+                        <label for="register-password" class="block mb-2 text-sm text-gray-600">Password</label>
+                        <input type="password" id="register-password" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Create a password">
+                    </div>
+                    <button type="submit" class="w-full bg-green-500 text-white p-3 rounded-lg hover:bg-green-600">
+                        Register
+                    </button>
+                </form>
+                <p class="text-center text-sm text-gray-500 mt-6">Already have an account? <button  class="text-blue-500 hover:underline" routerLink="/login">Login here</button></p>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Script to Toggle Between Login and Register Forms -->
-    <script>
-
-
-        registerTab.addEventListener('click', () => {
-            loginForm.classList.add('hidden');
-            registerForm.classList.remove('hidden');
-            registerTab.classList.add('border-blue-500');
-            loginTab.classList.remove('border-blue-500');
-        });
-
-        switchToRegister.addEventListener('click', () => {
-            loginForm.classList.add('hidden');
-            registerForm.classList.remove('hidden');
-            registerTab.classList.add('border-blue-500');
-            loginTab.classList.remove('border-blue-500');
-        });
-
-        switchToLogin.addEventListener('click', () => {
-            loginForm.classList.remove('hidden');
-            registerForm.classList.add('hidden');
-            loginTab.classList.add('border-blue-500');
-            registerTab.classList.remove('border-blue-500');
-        });
-    </script>
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white py-6 ">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 Book My Ambulance. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
