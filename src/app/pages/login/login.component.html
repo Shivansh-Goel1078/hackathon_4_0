@@ -1,1 +1,111 @@
-<app-nav-bar></app-nav-bar>
+<header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="flex items-center">
+            <!-- Logo -->
+            <img src="./../../../assets/logo.png" alt="BMA Logo" class="w-10 h-10">
+            <h1 class="text-xl font-bold ml-2">Book My Ambulance (BMA)</h1>
+        </div>
+        <!-- Navigation -->
+        <nav class="space-x-8">
+            <app-nav-bar></app-nav-bar>
+        </nav>
+    </div>
+</header>
+<p-toast position="bottom-right"></p-toast>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login or Register - Book My Ambulance (BMA)</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex justify-center items-center h-screen">
+
+    <!-- Container for Login/Register Form -->
+    <div class="bg-white shadow-lg rounded-lg w-full max-w-md p-8">
+
+
+        <!-- Login Form -->
+        <div id="login-form">
+            <h2 class="text-2xl font-bold mb-6 text-center">Login to your account</h2>
+            <form>
+                <div class="mb-4">
+                    <label for="login-email" class="block mb-2 text-sm text-gray-600">Email</label>
+                    <input type="email" id="login-email" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your email">
+                </div>
+                <div class="mb-6">
+                    <label for="login-password" class="block mb-2 text-sm text-gray-600">Password</label>
+                    <input type="password" id="login-password" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your password">
+                </div>
+                <button type="submit" class="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600">
+                    Login
+                </button>
+            </form>
+            <p class="text-center text-sm text-gray-500 mt-6">Don't have an account? <button id="switch-to-register" class="text-blue-500 hover:underline">Register here</button></p>
+        </div>
+
+        <!-- Register Form (Initially Hidden) -->
+        <div id="register-form" class="hidden">
+            <h2 class="text-2xl font-bold mb-6 text-center">Create a new account</h2>
+            <form>
+                <div class="mb-4">
+                    <label for="register-name" class="block mb-2 text-sm text-gray-600">Full Name</label>
+                    <input type="text" id="register-name" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your full name">
+                </div>
+                <div class="mb-4">
+                    <label for="register-email" class="block mb-2 text-sm text-gray-600">Email</label>
+                    <input type="email" id="register-email" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your email">
+                </div>
+                <div class="mb-4">
+                    <label for="register-password" class="block mb-2 text-sm text-gray-600">Password</label>
+                    <input type="password" id="register-password" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Create a password">
+                </div>
+                <button type="submit" class="w-full bg-green-500 text-white p-3 rounded-lg hover:bg-green-600">
+                    Register
+                </button>
+            </form>
+            <p class="text-center text-sm text-gray-500 mt-6">Already have an account? <button id="switch-to-login" class="text-blue-500 hover:underline">Login here</button></p>
+        </div>
+    </div>
+
+    <!-- Script to Toggle Between Login and Register Forms -->
+    <script>
+        const loginTab = document.getElementById('login-tab');
+        const registerTab = document.getElementById('register-tab');
+        const loginForm = document.getElementById('login-form');
+        const registerForm = document.getElementById('register-form');
+        const switchToRegister = document.getElementById('switch-to-register');
+        const switchToLogin = document.getElementById('switch-to-login');
+
+        loginTab.addEventListener('click', () => {
+            loginForm.classList.remove('hidden');
+            registerForm.classList.add('hidden');
+            loginTab.classList.add('border-blue-500');
+            registerTab.classList.remove('border-blue-500');
+        });
+
+        registerTab.addEventListener('click', () => {
+            loginForm.classList.add('hidden');
+            registerForm.classList.remove('hidden');
+            registerTab.classList.add('border-blue-500');
+            loginTab.classList.remove('border-blue-500');
+        });
+
+        switchToRegister.addEventListener('click', () => {
+            loginForm.classList.add('hidden');
+            registerForm.classList.remove('hidden');
+            registerTab.classList.add('border-blue-500');
+            loginTab.classList.remove('border-blue-500');
+        });
+
+        switchToLogin.addEventListener('click', () => {
+            loginForm.classList.remove('hidden');
+            registerForm.classList.add('hidden');
+            loginTab.classList.add('border-blue-500');
+            registerTab.classList.remove('border-blue-500');
+        });
+    </script>
+</body>
+</html>

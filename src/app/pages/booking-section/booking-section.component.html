@@ -1,0 +1,33 @@
+<header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="flex items-center">
+            <!-- Logo -->
+            <img src="./../../../assets/logo.png" alt="BMA Logo" class="w-10 h-10">
+            <h1 class="text-xl font-bold ml-2">Book My Ambulance (BMA)</h1>
+        </div>
+        <!-- Navigation -->
+        <nav class="space-x-8">
+            <app-nav-bar></app-nav-bar>
+        </nav>
+    </div>
+</header>
+<p-toast position="bottom-right"></p-toast>
+<section id="book" class="py-20">
+    <div class="container mx-auto px-4 text-center">
+        <h3 class="text-3xl font-bold mb-8">Select a Department</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-20 gap-8">
+            <!-- Department Cards -->
+            <div class="bg-white p-6 shadow-lg rounded-lg hover:shadow-xl transition">
+                <img src="cardio.jpg" alt="Cardiologist" class="w-20 mx-auto mb-4">
+                <h4 class="font-bold text-xl mb-2">Cardiologist</h4>
+                <p>For heart-related emergencies.</p>
+            </div>
+            <div class="bg-white p-6 shadow-lg rounded-lg hover:shadow-xl transition">
+                <img src="Dermato.jpg" alt="Dermatologist" class="w-20 mx-auto mb-4">
+                <h4 class="font-bold text-xl mb-2">Dermatologist</h4>
+                <p>For skin-related emergencies.</p>
+            </div>
+            <!-- Add more department cards as needed -->
+        </div>
+    </div>
+</section>

@@ -11,7 +11,7 @@ export const AuthenticationGaurds: CanActivateFn = (route: any, state: any) => {
     messageService.add({
       severity: 'error',
       summary: 'Unauthorised Access',
-      detail: 'Kindly Login / Register to Access',
+      detail: 'Kindly Login / Register to book an ambulance',
     });
     return false;
   } else {

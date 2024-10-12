@@ -5,8 +5,9 @@ import { RegisterComponent } from './pages/register/register.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AuthenticationGaurds } from './services/auth-gaurd.guard';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { BookingSectionComponent } from './pages/booking-section/booking-section.component';
 
-const AppName = "| Hackathon 4.0"
+const AppName = "| Book My Ambulance (BMA)"
 
 const routes: Routes = [
   {
@@ -23,7 +24,6 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent,
     title: `Home ${AppName}`,
-    canActivate: [AuthenticationGaurds]
   },{
     path: 'contact-us',
     component: ContactUsComponent,
@@ -32,7 +32,12 @@ const routes: Routes = [
   ,{
     path: '',
     pathMatch: 'full',
-    redirectTo: 'login',
+    redirectTo: 'home',
+  },{
+    path: 'book-ambulance',
+    component: BookingSectionComponent,
+    title: `Booking Section ${AppName}`,
+    canActivate: [AuthenticationGaurds]
   },
 ];
 

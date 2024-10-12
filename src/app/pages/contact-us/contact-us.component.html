@@ -1,1 +1,48 @@
-<app-nav-bar></app-nav-bar>
+<header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="flex items-center">
+            <!-- Logo -->
+            <img src="./../../../assets/logo.png" alt="BMA Logo" class="w-10 h-10">
+            <h1 class="text-xl font-bold ml-2">Book My Ambulance (BMA)</h1>
+        </div>
+        <!-- Navigation -->
+        <nav class="space-x-8">
+            <app-nav-bar></app-nav-bar>
+        </nav>
+    </div>
+</header>
+<p-toast position="bottom-right"></p-toast>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Book My Ambulance (BMA)</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+<section id="contact" class="py-20 bg-gray-200">
+    <div class="container mx-auto px-4 text-center">
+        <h3 class="text-3xl font-bold mb-4">Contact Us</h3>
+        <p>If you have any queries or need assistance, feel free to contact us at:</p>
+        <p>Email: supportbookmyambulance.com</p>
+        <p>Phone: +123-456-7890</p>
+    </div>
+</section>
+
+    <section id="about" class="py-20 bg-gray-200">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-3xl font-bold mb-4">About Us</h3>
+            <p>Book My Ambulance (BMA) provides quick access to ambulances across various departments. Our platform is designed to ensure timely and safe transportation during medical emergencies.</p>
+        </div>
+    </section>
+<footer class="bg-blue-600 text-white py-6 ">
+    <div class="container mx-auto px-4 text-center">
+        <p>&copy; 2024 Book My Ambulance. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

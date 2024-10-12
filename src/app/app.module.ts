@@ -13,7 +13,10 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ButtonModule } from 'primeng/button';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { MessageService } from 'primeng/api';
+import { BookingSectionComponent } from './pages/booking-section/booking-section.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SidebarModule } from 'primeng/sidebar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,14 +25,17 @@ import { MessageService } from 'primeng/api';
     HomeComponent,
     ContactUsComponent,
     NavBarComponent,
+    BookingSectionComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
+    SidebarModule,
     BrowserModule,
     AppRoutingModule,
     MessagesModule,
     TabMenuModule,
     ButtonModule,
-    ToastModule
+    ToastModule,
   ],
   providers: [
     MessageService],
