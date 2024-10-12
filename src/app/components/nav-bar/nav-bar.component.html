@@ -1,0 +1,13 @@
+<div class="flex overflow-hidden align-item-center justify-content-center">
+    <p-tabMenu
+      class="topBarNavItems flex-grow-1 flex align-items-center justify-content-center font-bold px-3 border-round"
+      [model]="items"
+      [activeItem]="activeItem"
+      (activeItemChange)="onActiveItemChange($event)"
+    />
+    <nav
+      class="topBarTrigger__box flex-none flex align-items-center justify-content-center font-bold px-3 border-round"
+    >
+    </nav>
+  </div>
+  
