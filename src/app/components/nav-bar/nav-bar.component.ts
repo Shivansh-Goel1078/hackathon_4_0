@@ -27,6 +27,7 @@ export class NavBarComponent implements OnInit {
       { label: 'Login', icon: 'pi pi-user', routerLink: '/login' },
       { label: 'Book An Ambulance', icon: 'pi pi-shopping-cart', routerLink: '/book-ambulance' },
       { label: 'Contact Us', icon: 'pi pi-address-book', routerLink: '/contact-us' },
+      { label: 'Emergency', icon: 'pi pi-address-book', routerLink: '/emergency' },
     ];
 
     this.activeItem = this.items[0];

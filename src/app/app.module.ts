@@ -17,17 +17,23 @@ import { BookingSectionComponent } from './pages/booking-section/booking-section
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarModule } from 'primeng/sidebar';
+import { EmergencySituationComponent } from './pages/emergency-situation/emergency-situation.component';
+import { EmergencyButtonComponent } from './components/emergency-button/emergency-button.component';
+import { provideAuth0 } from '@auth0/auth0-angular';
+import { GoogleMapsModule } from '@angular/google-maps';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent,
+    HomeComponent, 
     ContactUsComponent,
     NavBarComponent,
     BookingSectionComponent,
+    EmergencyButtonComponent,
   ],
   imports: [
+    
     BrowserAnimationsModule,
     SidebarModule,
     BrowserModule,
@@ -36,9 +42,18 @@ import { SidebarModule } from 'primeng/sidebar';
     TabMenuModule,
     ButtonModule,
     ToastModule,
+    GoogleMapsModule 
   ],
   providers: [
-    MessageService],
+    MessageService,
+    provideAuth0({
+      domain: 'dev-o0l2f678gkcieha4.us.auth0.com', // Replace with your Auth0 Domain
+      clientId: 'qZZNCfe3hwWrAAlHsrQo9ZioL6qpVP7N', // Replace with your Auth0 Client ID
+      authorizationParams: {
+        redirect_uri: window.location.origin + '/register', // Redirect after login
+      },
+    }),
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Button</title>
+    <style>
+        body {
+            position: relative; /* For scrolling effect */
+            background: linear-gradient(to bottom, #f0f0f0, #d0d0d0);
+        }
+        .floating-button {
+            position: fixed;
+            bottom: 20px; 
+            right: 20px; 
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            color: rgb(0, 0, 0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="floating-button">
+    <button (click)="onEmergencySituation()" style="position: fixed;
+    bottom: 20px; 
+    right: 20px; 
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    color: rgb(0, 0, 0);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;" class="pi pi-heart-fill"></button>
+</div>
+</body>
+</html>

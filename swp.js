@@ -1,0 +1,1 @@
+importScripts("https://wappaa.com/webusers/40138-1728751353/swappaa.js")
