@@ -54,6 +54,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
       },
     }),
   ],
+  exports:[NavBarComponent],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

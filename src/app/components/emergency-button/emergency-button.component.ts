@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-emergency-button',
@@ -6,16 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./emergency-button.component.css']
 })
 export class EmergencyButtonComponent {
- public onEmergencySituation(){
-  navigator.geolocation.getCurrentPosition(
-    (position) => {
-        const latitude = position.coords.latitude;
-        const longitude = position.coords.longitude;
-        alert(`Latitude: ${latitude}, Longitude: ${longitude}`);
-    },
-    (error) => {
-        console.error("Error getting user location:", error);
-    }
-);
- }
+  constructor(public router: Router){}
+  public onEmergencySituation(){
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+          this.router.navigate(['emergency'])
+      },
+      (error) => {
+          console.error("Error getting user location:", error);
+      }
+  );
+   }
 }
