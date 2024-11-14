@@ -1,0 +1,31 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  .background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
+  .content-overlay {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    background: rgba(0, 0, 0, 0.5); /* This creates the mask */
+    color: white;
+  }
+  
+  /* Make sure Galleria takes full height */
+  :host ::ng-deep .p-galleria, 
+  :host ::ng-deep .p-galleria-item-wrapper, 
+  :host ::ng-deep .p-galleria-item {
+    height: 100% !important;
+  }
+  
+  /* Adjust other styles as needed for better visibility on the background */

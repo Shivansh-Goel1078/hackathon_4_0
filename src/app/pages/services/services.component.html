@@ -1,0 +1,61 @@
+<header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-1 flex justify-between items-center">
+        <div class="flex items-center">
+            <!-- Logo -->
+            <img src="./../../../assets/ambulance.gif" alt="BMA Logo" class="w-10 h-10">
+            <h1 class="text-xl font-bold ml-2">Services</h1>
+        </div>
+        <!-- Navigation -->
+        <nav class="space-x-8">
+          <app-nav-bar></app-nav-bar>
+        </nav>
+    </div>
+</header>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Book My Ambulance (BMA)</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+
+  <section id="book" class="py-10">
+    <div class="container mx-auto px-4 text-center">
+        <h3 class="text-2xl font-bold mb-6">Select a Service</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            
+            <!-- Service Cards -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden px-4 py-4" (click)="selectService('Book Ambulance')">
+                <img src="../../../assets/public/images/ambulance.jpg" alt="Book Ambulance" class="w-full h-32 rounded-lg object-cover mb-5">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold mb-2">Book an Ambulance</h3>
+                    <p class="text-gray-600 text-sm">Quick and reliable ambulance booking service.</p>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden px-4 py-4" (click)="selectService('Book Appointment')">
+                <img src="../../../assets/public/images/appointment.jpg" alt="Book Appointment" class="w-full h-32 rounded-lg object-cover mb-5">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold mb-2">Book an Appointment</h3>
+                    <p class="text-gray-600 text-sm">Schedule your appointment with expert doctors.</p>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden px-4 py-4" (click)="selectService('Order Medicine')">
+                <img src="../../../assets/public/images/medicine.jpg" alt="Order Medicine" class="w-full h-32 rounded-lg object-cover mb-4">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold mb-2">Order Medicine</h3>
+                    <p class="text-gray-600 text-sm">Convenient online medicine ordering service.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+</body>
+</html>

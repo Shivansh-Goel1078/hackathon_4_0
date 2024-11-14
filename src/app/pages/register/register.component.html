@@ -1,64 +1,177 @@
-<header class="bg-white shadow-md sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div class="flex items-center">
-            <!-- Logo -->
-            <img src="./../../../assets/logo.png" alt="BMA Logo" class="w-10 h-10">
-            <h1 class="text-xl font-bold ml-2">Book My Ambulance (BMA)</h1>
-        </div>
-        <!-- Navigation -->
-        <nav class="space-x-8">
-            <app-nav-bar></app-nav-bar>
-        </nav>
-    </div>
-</header>
+
 <p-toast position="bottom-right"></p-toast>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login or Register - Book My Ambulance (BMA)</title>
+    <title>Register - Book My Ambulance (BMA)</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 ">
-    <header></header>
+<body class="bg-gray-100">
+    <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-1 flex justify-between items-center">
+        <div class="flex items-center">
+            <img src="./../../../assets/ambulance.gif" alt="BMA Logo" class="w-10 h-10">
+            <h1 class="text-xl font-bold ml-2">Register</h1>
+        </div>
+        <nav class="space-x-8">
+            <app-nav-bar></app-nav-bar>
+        </nav>
+    </div>
+</header>
 
-    <!-- Container for Login/Register Form -->
-    <section class="flex justify-center items-center h-screen">
+    <section class="flex justify-center items-center h-screen mt-4 mb-4">
         <div class="bg-white shadow-lg rounded-lg w-full max-w-md p-8">
-        
+            <div class="mb-6">
+                <ul class="flex border-b">
+                    <li class="mr-1">
+                        <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold"  (click)="showTab('driver')">Driver</a>
+                    </li>
+                    <li class="mr-1">
+                        <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold" (click)="showTab('patient')">Patient</a>
+                    </li>
+                    <li class="mr-1">
+                        <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold" (click)="showTab('doctor')">Doctor</a>
+                    </li>
+                </ul>
+            </div>
 
-            <!-- Register Form (Initially Hidden) -->
-            <div id="register-form">
-                <h2 class="text-2xl font-bold mb-6 text-center">Create a new account</h2>
-                <form>
+            <div id="driver-form" class="tab-content">
+                <h2 class="text-2xl font-bold mb-6 text-center">Driver Registration</h2>
+                <form [formGroup]="driverForm" (ngSubmit)="onSubmit()">
                     <div class="mb-4">
-                        <label for="register-name" class="block mb-2 text-sm text-gray-600">Full Name</label>
-                        <input type="text" id="register-name" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your full name">
+                        <label for="driver-name" class="block mb-2 text-sm text-gray-600">Full Name</label>
+                        <input type="text" id="driver-name" formControlName="fullName" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your full name">
                     </div>
                     <div class="mb-4">
-                        <label for="register-email" class="block mb-2 text-sm text-gray-600">Email</label>
-                        <input type="email" id="register-email" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your email">
+                        <label for="driver-phone" class="block mb-2 text-sm text-gray-600">Phone Number (without +91)</label>
+                        <input type="number" maxlength="10" id="driver-phone" formControlName="phoneNumber" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your phone number">
                     </div>
                     <div class="mb-4">
-                        <label for="register-password" class="block mb-2 text-sm text-gray-600">Password</label>
-                        <input type="password" id="register-password" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Create a password">
+                        <label for="driver-password" class="block mb-2 text-sm text-gray-600">Password</label>
+                        <input type="password" id="driver-password" formControlName="password" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter a password">
+                    </div>
+                    <div class="mb-4">
+                        <label for="driver-hospital" class="block mb-2 text-sm text-gray-600">Select Hospital Name</label>
+                        <select id="driver-hospital" formControlName="hospitalName" class="w-full p-3 border border-gray-300 rounded-lg appearance-none">
+                            <option value="">Select a hospital</option>
+                            <optgroup label="Dermatology Hospitals">
+                                <option value="Skin Health Hospital">Skin Health Hospital</option>
+                                <option value="Dermatology Care Center">Dermatology Care Center</option>
+                                <option value="Skin & Beauty Clinic">Skin & Beauty Clinic</option>
+                                <option value="Advanced Dermatology Institute">Advanced Dermatology Institute</option>
+                                <option value="Cosmetic Skin Solutions">Cosmetic Skin Solutions</option>
+                            </optgroup>
+                            <optgroup label="Cardiology Hospitals">
+                                <option value="National Heart Institute">National Heart Institute</option>
+                                <option value="Apollo Spectra">Apollo Spectra</option>
+                                <option value="Fortis Memorial Research Institute">Fortis Memorial Research Institute</option>
+                                <option value="Max Healthcare">Max Healthcare</option>
+                                <option value="Medanta - The Medicity">Medanta - The Medicity</option>
+                            </optgroup>
+                            <optgroup label="Orthopedic Hospitals">
+                                <option value="Orlando Health Jewett Orthopedic Institute">Orlando Health Jewett Orthopedic Institute</option>
+                                <option value="Apollo Spectra">Apollo Spectra</option>
+                                <option value="Diyos Hospital">Diyos Hospital</option>
+                                <option value="Healing Hospital">Healing Hospital</option>
+                                <option value="Mayom Hospital">Mayom Hospital</option>
+                            </optgroup>
+                            <optgroup label="Neurology Hospitals">
+                                <option value="Chaitras Neurology & Spine Clinic">Chaitras Neurology & Spine Clinic</option>
+                                <option value="Sri Universal Neuro Centre">Sri Universal Neuro Centre</option>
+                                <option value="Lalitha Hospital">Lalitha Hospital</option>
+                                <option value="Medicover Hospitals">Medicover Hospitals</option>
+                                <option value="Srujana Hospitals">Srujana Hospitals</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="driver-license" class="block mb-2 text-sm text-gray-600">Upload a Valid Driver's License</label>
+                        <input type="file" id="driver-license" (change)="onFileChange($event)" class="w-full p-3 border border-gray-300 rounded-lg">
                     </div>
                     <button type="submit" class="w-full bg-green-500 text-white p-3 rounded-lg hover:bg-green-600">
-                        Register
+                        Register as Driver
                     </button>
                 </form>
-                <p class="text-center text-sm text-gray-500 mt-6">Already have an account? <button  class="text-blue-500 hover:underline" routerLink="/login">Login here</button></p>
+            </div>
+
+            <div id="patient-form" class="tab-content hidden">
+                <h2 class="text-2xl font-bold mb-6 text-center">Patient Registration</h2>
+                <form [formGroup]="patientForm" (ngSubmit)="onSubmit()">
+                    <div class="mb-4">
+                        <label for="patient-fullname" class="block mb-2 text-sm text-gray-600">Fullname</label>
+                        <input type="text" id="patient-fullname" formControlName="fullName" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your fullname">
+                    </div>
+                    <div class="mb-4">
+                        <label for="patient-email" class="block mb-2 text-sm text-gray-600">Email</label>
+                        <input type="email" id="patient-email" formControlName="email" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your email">
+                    </div>
+                    <div class="mb-4">
+                        <label for="patient-password" class="block mb-2 text-sm text-gray-600">Password</label>
+                        <input type="password" id="patient-password" formControlName="password" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your password">
+                    </div>
+                    <button type="submit" class="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600">
+                        Register as Patient
+                    </button>
+                </form>
+            </div>
+
+            <div id="doctor-form" class="tab-content hidden">
+                <h2 class="text-2xl font-bold mb-6 text-center">Doctor Registration</h2>
+                <form [formGroup]="doctorForm" (ngSubmit)="onSubmit()">
+                    <div class="mb-4">
+                        <label for="doctor-fullname" class="block mb-2 text-sm text-gray-600">FullName</label>
+                        <input type="text" id="doctor-fullname" formControlName="fullName" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your fullname">
+                    </div>
+                    <div class="mb-4">
+                        <label for="doctor-email" class="block mb-2 text-sm text-gray-600">Email</label>
+                        <input type="email" id="doctor-email" formControlName="email" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your email">
+                    </div>
+                    <div class="mb-4">
+                        <label for="doctor-password" class="block mb-2 text-sm text-gray-600">Password</label>
+                        <input type="password" id="doctor-password" formControlName="password" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your password">
+                    </div>
+                    <div class="mb-4">
+                        <label for="doctor-hospital" class="block mb-2 text-sm text-gray-600">Hospital Name</label>
+                        <input type="text" id="doctor-hospital" formControlName="hospitalName" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your Hospital name">
+                    </div>
+                    <div class="mb-4">
+                        <label for="doctor-type" class="block mb-2 text-sm text-gray-600">Place Type</label>
+                        <select id="doctor-type" formControlName="placeType" class="w-full p-3 border border-gray-300 rounded-lg appearance-none bg-white" (change)="onPlaceTypeChange($event)">
+                            <option value="">Select a place type</option>
+                            <option value="Clinic">Clinic</option>
+                            <option value="Hospital">Hospital</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="doctor-speciality" class="block mb-2 text-sm text-gray-600">Specialisation</label>
+                        <select id="doctor-speciality" formControlName="specialization" class="w-full p-3 border border-gray-300 rounded-lg" (change)="onSpecializationChange($event)">
+                            <option value="">Select a specialization</option>
+                            <option value="Dermatologist">Dermatologist</option>
+                            <option value="Cardiologist">Cardiologist</option>
+                            <option value="Orthopedic">Orthopedic</option>
+                            <option value="Neurologist">Neurologist</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-yellow-500 text-white p-3 rounded-lg hover:bg-yellow-600">
+                        Register as Doctor
+                    </button>
+                </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-blue-600 text-white py-6 ">
+    <footer class="bg-blue-600 text-white py-4">
         <div class="container mx-auto px-4 text-center">
             <p>&copy; 2024 Book My Ambulance. All rights reserved.</p>
         </div>
     </footer>
+
+   
 </body>
 </html>

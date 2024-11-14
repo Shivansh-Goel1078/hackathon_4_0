@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +21,20 @@ import { EmergencySituationComponent } from './pages/emergency-situation/emergen
 import { EmergencyButtonComponent } from './components/emergency-button/emergency-button.component';
 import { provideAuth0 } from '@auth0/auth0-angular';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { CommonModule } from '@angular/common';
+import { DepartmentsComponent } from './pages/section/departments/departments.component';
+import { ServicesComponent } from './pages/services/services.component';
+import { BookAppointmentComponent } from './pages/book-appointment/book-appointment.component';
+import { OrderMedicineComponent } from './pages/order-medicine/order-medicine.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TabViewModule } from 'primeng/tabview';
+import { InputTextModule } from 'primeng/inputtext';
+import { PasswordModule } from 'primeng/password';
+import { CalendarModule } from 'primeng/calendar';
+import { AccountUserComponent } from './pages/account-user/account-user.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { GalleriaModule } from 'primeng/galleria';
+import { CarouselModule } from 'primeng/carousel';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,18 +45,37 @@ import { GoogleMapsModule } from '@angular/google-maps';
     NavBarComponent,
     BookingSectionComponent,
     EmergencyButtonComponent,
+    DepartmentsComponent,
+    ServicesComponent,
+    BookAppointmentComponent,
+    OrderMedicineComponent,
+    AccountUserComponent,
   ],
   imports: [
-    
     BrowserAnimationsModule,
     SidebarModule,
     BrowserModule,
+    ReactiveFormsModule,
+    CommonModule,
+    CarouselModule,
     AppRoutingModule,
     MessagesModule,
     TabMenuModule,
     ButtonModule,
+    GalleriaModule,
     ToastModule,
-    GoogleMapsModule 
+    GoogleMapsModule ,
+    TabViewModule,
+    InputTextModule,
+    PasswordModule,
+    CalendarModule,
+    ButtonModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [
     MessageService,
@@ -54,7 +87,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
       },
     }),
   ],
-  exports:[NavBarComponent],
+  exports:[NavBarComponent,DepartmentsComponent],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

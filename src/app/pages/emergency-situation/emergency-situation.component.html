@@ -1,9 +1,17 @@
 <header class="bg-white shadow-md sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <div class="container mx-auto px-1 py-1 flex justify-between items-center">
         <div class="flex items-center">
             <!-- Logo -->
-            <img src="./../../../assets/logo.png" alt="BMA Logo" class="w-10 h-10">
-            <h1 class="text-xl font-bold ml-2">Book My Ambulance (BMA)</h1>
+            
+            <img src="./../../../assets/ambulance.gif"  alt="BMA Logo" class="w-10 h-10 mt-4">
+            <a href="/home" target="_blank" rel="noopener noreferrer" style="display:block;">
+                <!-- Ensure no text wraps around -->
+                <span style="visibility:hidden;">&nbsp;</span>
+             
+                <!-- Your dynamic src here -->
+                <h1 class="text-xl font-bold ml-2 mb-2">Emergency</h1>
+             </a>
+            
         </div>
         <!-- Navigation -->
         <nav class="space-x-8">
@@ -22,12 +30,138 @@
 </head>
 
 <body class="bg-gray-100 text-gray-900">
-    <google-map 
-    height="500px" 
-    width="900px" 
+
+    <section *ngIf="sectionSelection" id="book" class="py-10">
+        <div class="container mx-auto px-4 text-center">
+          <h3 class="text-2xl font-bold mb-6">Select a Department</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" *ngIf="departmentSectionView">
+            
+            <!-- Department Cards -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden px-4 py-4" (click)="showHospitals('Dermatology')">
+              <img src="../../../assets/public/images/Dermato.jpg" alt="Dermatology" class="w-full h-32 rounded-lg object-cover mb-4">
+              <div class="p-4">
+                <h3 class="text-xl font-semibold mb-2">Dermatologist</h3>
+                <p class="text-gray-600 text-sm">Expert doctors for all skin-related treatments and care.</p>
+              </div>
+            </div>
+      
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden px-4 py-4" (click)="showHospitals('Cardiology')">
+              <img src="../../../assets/public/images/cardio.jpg" alt="Cardiology" class="w-full h-32 rounded-lg object-cover mb-4">
+              <div class="p-4">
+                <h3 class="text-xl font-semibold mb-2">Cardiologist</h3>
+                <p class="text-gray-600 text-sm">Specialists for heart diseases and cardiovascular care.</p>
+              </div>
+            </div>
+      
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden px-4 py-4" (click)="showHospitals('Orthopedic')">
+              <img src="../../../assets/public/images/Orthopedic.jpg" alt="Orthopedic" class="w-full h-32 rounded-lg object-cover mb-4">
+              <div class="p-4">
+                <h3 class="text-xl font-semibold mb-2">Orthopedic</h3>
+                <p class="text-gray-600 text-sm">Best orthopedic doctors for bone and joint care.</p>
+              </div>
+            </div>
+      
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden px-4 py-4" (click)="showHospitals('Neurology')">
+              <img src="../../../assets/public/images/Neurologist.jpg" alt="Neurology" class="w-full h-32 rounded-lg object-cover mb-4">
+              <div class="p-4">
+                <h3 class="text-xl font-semibold mb-2">Neurologist</h3>
+                <p class="text-gray-600 text-sm">Specialized care for the nervous system and brain-related disorders.</p>
+              </div>
+            </div>
+      
+          </div>
+      
+          <!-- Hospitals List -->
+          <div *ngIf="selectedDepartment" class="mt-10">
+            <h4 class="text-xl font-bold">Hospitals for {{ selectedDepartment }}</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4">
+      
+              <!-- Directly reference hospitals based on selectedDepartment -->
+              <ng-container *ngIf="selectedDepartment === 'Dermatology'">
+                <div *ngFor="let hospital of ['Skin Health Hospital','Dermatology Care Center','Skin & Beauty Clinic','Advanced Dermatology Institute','Cosmetic Skin Solutions'],"
+                     (click)="hospitalClicked(hospital)"
+                     class="bg-white shadow-md rounded-lg p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-shadow duration-200">
+                  <h5 class="font-semibold">{{ hospital }}</h5>
+                </div>
+              </ng-container>
+      
+              <ng-container *ngIf="selectedDepartment === 'Cardiology'">
+                <div *ngFor="let hospital of [
+                'National Heart Institute',
+                'Apollo Spectra',
+                'Fortis Memorial Research Institute',
+                'Max Healthcare',
+                'Medanta - The Medicity'
+              ]"
+                     (click)="hospitalClicked(hospital)"
+                     class="bg-white shadow-md rounded-lg p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-shadow duration-200">
+                  <h5 class="font-semibold">{{ hospital }}</h5>
+                </div>
+              </ng-container>
+      
+              <ng-container *ngIf="selectedDepartment === 'Orthopedic'">
+                <div *ngFor="let hospital of [
+                'Orlando Health Jewett Orthopedic Institute',
+                'Apollo Spectra',
+                'Diyos Hospital',
+                'Healing Hospital',
+                'Mayom Hospital'
+              ]"
+                     (click)="hospitalClicked(hospital)"
+                     class="bg-white shadow-md rounded-lg p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-shadow duration-200">
+                  <h5 class="font-semibold">{{ hospital }}</h5>
+                </div>
+              </ng-container>
+      
+              <ng-container *ngIf="selectedDepartment === 'Neurology'">
+                <div *ngFor="let hospital of [
+                'Chaitras Neurology & Spine Clinic',
+                'Sri Universal Neuro Centre',
+                'Lalitha Hospital',
+                'Medicover Hospitals',
+                'Srujana Hospitals'
+              ]"
+                     (click)="hospitalClicked(hospital)"
+                     class="bg-white shadow-md rounded-lg p-4 flex flex-col items-center cursor-pointer hover:shadow-lg transition-shadow duration-200">
+                  <h5 class="font-semibold">{{ hospital }}</h5>
+                </div>
+              </ng-container>
+      
+            </div>
+          </div>
+      
+        </div>
+      </section>
+      
+    <div class="map-container"
+    *ngIf="mapView">
+        <!-- <google-map 
+        height="60vh"
+        width="100vw"
     [center]="{ lat: lat, lng: lng }" 
     [zoom]="zoom" 
     (mapClick)="move($event)">
-</google-map>
+    <map-marker
+      [position]="markerPosition">
+    </map-marker>
+</google-map> -->
+<!-- <google-map height="60vh" width="100vw" [center]="{ lat: lat, lng: lng }" [zoom]="zoom" (mapClick)="move($event)">
+    <map-marker [position]="markerPosition"></map-marker>
+  </google-map> -->
+  
+    </div>
+    <iframe *ngIf="mapIframeSrc" 
+    [src]="mapIframeSrc" 
+    width="100%"
+    height="400px" 
+    style="border:0;" 
+    allowfullscreen>
+</iframe>
+
+<div *ngIf="mapIframeSrc" class="precautions-container">
+  <div class="section"> <h1 style="font-weight: 900;">Dermatologist</h1> <h3 style="font-weight: 700;">Precautions:</h3> <ul> <li><p>Use sunscreen daily</p></li> <li><p>Avoid excessive sun exposure</p></li> <li><p>Keep skin clean and moisturized</p></li> </ul> <h3 style="font-weight: 700;">Spot Treatments:</h3> <ul> <li><p>Apply cold compress for minor burns</p></li> <li><p>Use over-the-counter hydrocortisone for mild rashes</p></li> <li><p>Apply aloe vera gel for sunburns</p></li> </ul> </div> <div class="section"> <h1 style="font-weight: 900;">Cardiologist</h1> <h3 style="font-weight: 700;">Precautions:</h3> <ul> <li><p>Maintain a healthy diet low in saturated fats</p></li> <li><p>Exercise regularly</p></li> <li><p>Monitor blood pressure and cholesterol levels</p></li> </ul> <h3 style="font-weight: 700;">Spot Treatments:</h3> <ul> <li><p>Administer aspirin for suspected heart attack</p></li> <li><p>Perform CPR if necessary</p></li> <li><p>Use nitroglycerin for angina (if prescribed)</p></li> </ul> </div> <div class="section"> <h1 style="font-weight: 900;">Neurologist</h1> <h3 style="font-weight: 700;">Precautions:</h3> <ul> <li><p>Get adequate sleep</p></li> <li><p>Manage stress levels</p></li> <li><p>Avoid excessive alcohol consumption</p></li> </ul> <h3 style="font-weight: 700;">Spot Treatments:</h3> <ul> <li><p>Rest in a quiet, dark room for migraines</p></li> <li><p>Apply cold packs for headaches</p></li> <li><p>Use FAST method to identify potential strokes</p></li> </ul> </div> <div class="section"> <h1 style="font-weight: 900;">Orthopedic</h1> <h3 style="font-weight: 700;">Precautions:</h3> <ul> <li><p>Maintain proper posture</p></li> <li><p>Use ergonomic equipment at work</p></li> <li><p>Wear supportive footwear</p></li> </ul> <h3 style="font-weight: 700;">Spot Treatments:</h3> <ul> <li><p>Apply RICE (Rest, Ice, Compression, Elevation) for sprains</p></li> <li><p>Use heat therapy for chronic muscle pain</p></li> <li><p>Immobilize suspected fractures</p></li> </ul> </div>
+</div>
+
+
 </body>
 </html>

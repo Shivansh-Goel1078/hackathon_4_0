@@ -1,0 +1,15 @@
+.precautions-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+.section {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+h2 {
+    color: #2c3e50;
+}
+ul {
+    padding-left: 20px;
+}

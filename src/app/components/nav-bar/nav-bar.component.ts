@@ -20,15 +20,24 @@ export class NavBarComponent implements OnInit {
 
   constructor(private router: Router) {}
 
+  authenticated = localStorage.getItem("Token")
   ngOnInit() {
-    this.items = [
-      { label: 'Home', icon: 'pi pi-home', routerLink: '/home' },
-      { label: 'Register', icon: 'pi pi-user-plus', routerLink: '/register' },
-      { label: 'Login', icon: 'pi pi-user', routerLink: '/login' },
-      { label: 'Book An Ambulance', icon: 'pi pi-shopping-cart', routerLink: '/book-ambulance' },
-      { label: 'Contact Us', icon: 'pi pi-address-book', routerLink: '/contact-us' },
-      { label: 'Emergency', icon: 'pi pi-address-book', routerLink: '/emergency' },
-    ];
+    if(!this.authenticated){
+      this.items = [
+        { label: 'Home', icon: 'pi pi-home', routerLink: '/home' },
+        { label: 'Register', icon: 'pi pi-user-plus', routerLink: '/register' },
+        { label: 'Login', icon: 'pi pi-user', routerLink: '/login' },
+        { label: 'Services', icon: 'pi pi-shopping-cart', routerLink: '/services' },
+        { label: 'Contact Us', icon: 'pi pi-address-book', routerLink: '/contact-us' },
+      ];
+    }else{
+      this.items = [
+        { label: 'Home', icon: 'pi pi-home', routerLink: '/home' },
+        { label: 'Account', icon: 'pi pi-user', routerLink: '/account' },
+        { label: 'Services', icon: 'pi pi-shopping-cart', routerLink: '/services' },
+        { label: 'Contact Us', icon: 'pi pi-address-book', routerLink: '/contact-us' },
+      ];
+    }
 
     this.activeItem = this.items[0];
     this.checkScreenSize(); // Check screen size on init

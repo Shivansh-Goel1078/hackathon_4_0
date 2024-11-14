@@ -1,38 +1,63 @@
-<header class="bg-white shadow-md sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div class="flex items-center">
-            <!-- Logo -->
-            <img src="./../../../assets/logo.png" alt="BMA Logo" class="w-10 h-10">
-            <h1 class="text-xl font-bold ml-2">Book My Ambulance (BMA)</h1>
-        </div>
-        <!-- Navigation -->
-        <nav class="space-x-8">
-            <app-nav-bar></app-nav-bar>
-        </nav>
-    </div>
-</header>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Book My Ambulance (BMA)</title>
+    <title>Book My Ambulance</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 text-gray-900">
 
     <!-- Navbar -->
-    
-
-    <!-- Hero Section -->
-    <section class="bg-blue-600 text-white py-20 text-center">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold mb-4">Book Ambulance Instantly Based on Doctor's Department</h2>
-            <p class="mb-8">Select a department, and we will connect you with the nearest available ambulance in minutes.</p>
-            <a href="/book-ambulance" class="bg-white text-blue-600 px-6 py-3 rounded-full hover:bg-gray-200">Book Now</a>
-        </div>
-    </section>
+    <div class="relative">
+        <!-- Carousel -->
+        <header class="bg-white shadow-md sticky top-0 z-50">
+            <div class="container mx-auto px-3 py-1 flex justify-between items-center">
+                <div class="flex items-center">
+                    <!-- Logo -->
+                    <img src="./../../../assets/ambulance.gif" alt="BMA Logo" class="mt-1 w-10 h-10">
+                    <h1 class="text-xl font-bold ml-2">Book My Ambulance (BMA)</h1>
+                </div>
+                <!-- Navigation -->
+                <nav class="space-x-8">
+                    <app-nav-bar></app-nav-bar>
+                </nav>
+            </div>
+        </header>
+        <p-carousel
+          [value]="products"
+          [numVisible]="1"
+          [numScroll]="1"
+          [showNavigators]="false"
+          [showIndicators]="false"
+          [circular]="false"
+          [responsiveOptions]="responsiveOptions"
+          [autoplayInterval]="3000"
+        >
+          <ng-template let-product pTemplate="item">
+            <div class="text-center">
+              <div>
+                <img
+                  src="../../../assets/images/{{ product.image }}"
+                  [alt]="product.name"
+                  class="w-full h-screen object-cover"
+                />
+              </div>
+            </div>
+          </ng-template>
+        </p-carousel>
+      
+        <!-- Overlapping Section -->
+        <section class="absolute inset-0 flex items-center justify-center bg-blue-300 bg-opacity-80 text-white">
+          <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl text-black font-bold mb-4">Book Ambulance Instantly Based on Patient's Requirement</h2>
+            <p class="mb-8 text-black">Select a department, and we will connect you with the nearest available ambulance in minutes.</p>
+            <a href="/book-ambulance" class="bg-white text-blue-900 px-6 py-3 rounded-full hover:bg-gray-200">Book Now</a>
+          </div>
+        </section>
+      </div>
 
     <!-- Ambulance Booking Section -->
 
@@ -57,7 +82,7 @@
 
 
     <!-- Footer -->
-    <footer class="bg-blue-600 text-white py-6">
+    <footer class="bg-blue-100 text-black py-4">
         <div class="container mx-auto px-4 text-center">
             <p>&copy; 2024 Book My Ambulance. All rights reserved.</p>
         </div>
